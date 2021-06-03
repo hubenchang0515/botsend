@@ -32,7 +32,7 @@ func SetKey(key string) {
 }
 
 func GetHook(key string) string {
-	return "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=" + key
+	return "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?debug=1&key=" + key
 }
 
 func Request(url string, body []byte) *http.Response {
@@ -46,6 +46,8 @@ func Request(url string, body []byte) *http.Response {
 	if err != nil {
 		log.Fatal(err)
 	}
+	data, err := ioutil.ReadAll(response.Body)
+	println(string(data))
 	return response
 }
 

@@ -4,13 +4,14 @@ import (
 	"crypto/md5"
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 )
 
 type PictureContent struct {
-	Data []byte   `json:"base64"`
-	Md5  [16]byte `json:"md5"`
+	Data string `json:"base64"`
+	Md5  string `json:"md5"`
 }
 
 type PictureMessage struct {
@@ -35,7 +36,9 @@ func (m *PictureMessage) SetPicture(path string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	m.Picture.Data = make([]byte, base64.StdEncoding.EncodedLen(len(data)))
-	base64.StdEncoding.Encode(m.Picture.Data, data)
-	m.Picture.Md5 = md5.Sum(data)
+
+	base64Data := make([]byte, base64.StdEncoding.EncodedLen(len(data)))
+	base64.StdEncoding.Encode(base64Data, data)
+	m.Picture.Data = string(base64Data)
+	m.Picture.Md5 = fmt.Sprintf("%x", md5.Sum(data))
 }
