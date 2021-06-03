@@ -46,8 +46,7 @@ func Request(url string, body []byte) *http.Response {
 	if err != nil {
 		log.Fatal(err)
 	}
-	data, err := ioutil.ReadAll(response.Body)
-	println(string(data))
+
 	return response
 }
 

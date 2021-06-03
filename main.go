@@ -37,7 +37,6 @@ func main() {
 	case "picture":
 		msg := NewPictureMessage()
 		msg.SetPicture(flag.Arg(0))
-		println(string(msg.Json()))
 		Request(GetHook(*key), msg.Json())
 	case "markdown":
 		msg := NewMarkdownMessage()
