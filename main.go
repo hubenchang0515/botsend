@@ -33,7 +33,7 @@ func main() {
 		if *at != "" {
 			msg.SetMentionString(*at)
 		}
-		// Request(GetHook(*key), msg.Json())
+		Request(GetHook(*key), msg.Json())
 	case "picture":
 		msg := NewPictureMessage()
 		msg.SetPicture(flag.Arg(0))
