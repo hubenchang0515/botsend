@@ -2,6 +2,12 @@
 
 botsend 是一个命令行的企业微信机器人消息发送工具
 
+## 安装
+
+```bash
+go get -v github.com/hubenchang0515/botsend/cmd/botsend
+```
+
 ## 使用说明
 
 ### 设置KEY
@@ -9,8 +15,8 @@ botsend 是一个命令行的企业微信机器人消息发送工具
 
 ### 普通消息
 * 发送普通消息 `botsend 消息内容`
-* 发送普通消息并@群成员 `botsend 消息内容 -at 手机号,手机号`
-* 发送普通消息并@全体成员 `botsend 消息内容 -at @all`
+* 发送普通消息并@群成员 `botsend -at=成员的手机号(逗号分隔) 消息内容`
+* 发送普通消息并@全体成员 `botsend -at=@all 消息内容`
 
 ### 图片消息
 * 发送图片 `botsend -type=picture 图片文件`

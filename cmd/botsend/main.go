@@ -15,7 +15,7 @@ func Key() string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	keyFile := path.Join(home, ".config", "botsend")
+	keyFile := path.Join(home, ".config", "botsend.key")
 	data, err := ioutil.ReadFile(keyFile)
 	if err != nil {
 		log.Fatal(err)
@@ -25,7 +25,7 @@ func Key() string {
 
 func SetKey(key string) {
 	home, _ := os.UserHomeDir()
-	keyFile := path.Join(home, ".config", "botsend")
+	keyFile := path.Join(home, ".config", "botsend.key")
 	ioutil.WriteFile(keyFile, []byte(key), 0644)
 }
 
