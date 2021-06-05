@@ -30,7 +30,7 @@ func SetKey(key string) {
 }
 
 func main() {
-	key := flag.String("key", "", "Webhook key, will be saved in ~/.config/botsend")
+	key := flag.String("key", "", "Webhook key, will be saved in ~/.config/botsend.key")
 	messageType := flag.String("type", "text", "Message type: text picture markdown url file")
 	at := flag.String("at", "", "Mention someone, splited by comma e.g. '-at=137xxxxxxx2,153xxxxxxx2' or '-at=@all'")
 	title := flag.String("title", "", "Title of URL message")
