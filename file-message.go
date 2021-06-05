@@ -1,4 +1,4 @@
-package main
+package botsend
 
 import "encoding/json"
 
@@ -23,7 +23,7 @@ func (m *FileMessage) Json() []byte {
 	return data
 }
 
-func (m *FileMessage) SetFile(path string) {
-	id := Upload(Key(), path)
+func (m *FileMessage) Upload(key string, path string) {
+	id := Upload(key, path)
 	m.File.Id = id
 }

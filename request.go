@@ -1,4 +1,4 @@
-package main
+package botsend
 
 import (
 	"bytes"
@@ -7,35 +7,16 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 	"path"
 	"strconv"
 )
-
-func Key() string {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		log.Fatal(err)
-	}
-	keyFile := path.Join(home, ".config", "botsend")
-	data, err := ioutil.ReadFile(keyFile)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return string(data)
-}
-
-func SetKey(key string) {
-	home, _ := os.UserHomeDir()
-	keyFile := path.Join(home, ".config", "botsend")
-	ioutil.WriteFile(keyFile, []byte(key), 0644)
-}
 
 func GetHook(key string) string {
 	return "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?debug=1&key=" + key
 }
 
-func Request(url string, body []byte) *http.Response {
+func Request(key string, body []byte) *http.Response {
+	url := GetHook(key)
 	request, err := http.NewRequest(http.MethodPost, url, bytes.NewReader(body))
 	if err != nil {
 		log.Fatal(err)
