@@ -10,6 +10,11 @@ go get -v github.com/hubenchang0515/botsend/cmd/botsend
 
 ## 使用说明
 
+## 企业微信添加群机器人
+![6260133c7e895e94b027acf5b57b7cad_720](https://github.com/user-attachments/assets/afe4ed99-0a10-459a-b8fb-517353a60332)
+![96a039f61c81ae868dc66b484691614d](https://github.com/user-attachments/assets/d03c958c-6532-4b4f-a3a9-0f1ec3d0a217)
+
+
 ### 设置KEY
 * `botsend -key xxxxxxxxxxxxx`
 
